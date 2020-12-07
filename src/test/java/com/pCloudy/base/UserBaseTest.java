@@ -49,6 +49,7 @@ public class UserBaseTest extends TestListenerAdapter implements ITestListener{
 	public String device_udid;
 	public ExtentTest report;
 	public ExtentTest parentReport;
+	EnviromentVariables variables=new EnviromentVariables();
 
 	Logger logger = Logger.getLogger(UserBaseTest.class);
 
@@ -178,10 +179,10 @@ public class UserBaseTest extends TestListenerAdapter implements ITestListener{
 		else if(prop.getProperty("Runner").equalsIgnoreCase("pCloudyAndroid")){
 			DesiredCapabilities capabilities = new DesiredCapabilities();
 
-			capabilities.setCapability("pCloudy_Username", prop.getProperty("pCloudy_Username"));
-			capabilities.setCapability("pCloudy_ApiKey", prop.getProperty("pCloudy_ApiKey"));
-			capabilities.setCapability("pCloudy_ApplicationName", prop.getProperty("pCloudy_ApplicationName"));
-			capabilities.setCapability("pCloudy_DurationInMinutes", prop.getProperty("pCloudy_DurationInMinutes"));
+			capabilities.setCapability("pCloudy_Username", variables.getpCloudy_Username());
+			capabilities.setCapability("pCloudy_ApiKey", variables.getpCloudy_ApiKey());
+			capabilities.setCapability("pCloudy_ApplicationName", variables.getpCloudy_ApplicationName());
+			capabilities.setCapability("pCloudy_DurationInMinutes",variables.getpCloudy_DurationInMinutes());
 			capabilities.setCapability("pCloudy_DeviceFullName", device_udid);
 			capabilities.setCapability("platformVersion", version);
 			capabilities.setCapability("newCommandTimeout", 600);
