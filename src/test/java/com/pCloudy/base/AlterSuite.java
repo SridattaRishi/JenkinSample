@@ -31,8 +31,10 @@ public class AlterSuite implements IAlterSuiteListener {
 	
 	@Override
 	public void alter(List<XmlSuite> suites) {
+
+	        System.out.println("Strated......................"+ System.getenv("pCloudy_Devices"));
 		AlterSuite alterSuite = new AlterSuite();
-		String jsonString = System.getenv("pCloudy_Devices");
+		String jsonString = alterSuite.readText();
 		alterSuite.validatejSonString(jsonString);
 		List<Map<String, String>> deviceList = alterSuite.getDevices(jsonString);
 		XmlSuite suite = suites.get(0);
@@ -80,20 +82,7 @@ public class AlterSuite implements IAlterSuiteListener {
 		}
 
 	}
-	public static List<Map<String, String>> getDevices(String jsonString){
-		List<Map<String, String>> deviceList = new ArrayList<Map<String, String>>();
-		JSONArray jsonArray = new JSONObject(jsonString).getJSONArray("devices");
-		for(int i =0; i<jsonArray.length(); i++) {
-			Map<String, String> device = new HashMap<String, String>() ;
-			String fullName = jsonArray.getString(i);
-			String[] deviceArray = fullName.split("_");
-			device.put("name", fullName);
-			device.put("version", deviceArray[deviceArray.length-2]);
-			deviceList.add(device);
-		}
-		return deviceList;
-	}
-/*
+
 	public List<Map<String, String>> getDevices(String jsonString){
 		List<Map<String, String>> deviceList = new ArrayList<Map<String, String>>();
 
@@ -102,11 +91,11 @@ public class AlterSuite implements IAlterSuiteListener {
 			Map<String, String> device = new HashMap<String, String>() ;
 			JSONObject jsonObject = jsonArray.getJSONObject(i);
 
-		//	device.put("name", jsonObject.getString("name"));
-		//	device.put("version", jsonObject.getString("version"));
+			device.put("name", jsonObject.getString("name"));
+			device.put("version", jsonObject.getString("version"));
 			deviceList.add(device);
 		}
 		return deviceList;
-	}*/
+	}
 
 }

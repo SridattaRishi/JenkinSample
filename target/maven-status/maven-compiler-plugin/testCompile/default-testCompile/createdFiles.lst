@@ -1,0 +1,13 @@
+com/pCloudy/pages/PcloudyHomePage.class
+com/pCloudy/base/Log.class
+com/pCloudy/pages/pCloudySampleIOSpage.class
+com/pCloudy/base/InvokedMethodListeners.class
+com/pCloudy/base/AlterSuite.class
+com/pCloudy/config/ContextManager.class
+com/pCloudy/android/tests/pCloudyIosTest.class
+com/pCloudy/base/Reporter.class
+com/pCloudy/pageobjects/pCloudyHomePageObject.class
+com/pCloudy/android/tests/pCloudyAndroidTest.class
+com/pCloudy/pageobjects/PcloudyIOSPageObject.class
+com/pCloudy/base/TestListener.class
+com/pCloudy/base/UserBaseTest.class

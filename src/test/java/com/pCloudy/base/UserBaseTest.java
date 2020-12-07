@@ -49,7 +49,6 @@ public class UserBaseTest extends TestListenerAdapter implements ITestListener{
 	public String device_udid;
 	public ExtentTest report;
 	public ExtentTest parentReport;
-	EnviromentVariables variables=new EnviromentVariables();
 
 	Logger logger = Logger.getLogger(UserBaseTest.class);
 
